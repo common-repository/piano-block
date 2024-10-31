@@ -1,0 +1,88 @@
+@import "../../variables";
+
+.piano-block-keyboard {
+	position: relative;
+	padding: $grid-unit-20 0;
+	overflow-x: auto;
+	// Prevents padding from being applied to the left and right sides.
+	scrollbar-gutter: auto !important;
+
+	@include custom-scrollbars-on-hover(transparent, rgba($white, 0.8));
+
+	.piano-block-keyboard__inner {
+		box-sizing: border-box;
+		display: flex;
+		width: $white-key-width * $white-key-count;
+		height: $white-key-height;
+		padding: 0 $grid-unit-20;
+		margin: 0 auto;
+	}
+
+	.piano-block-keyboard__key {
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
+		padding: 0 0 $grid-unit-10;
+		font-size: 11px;
+		font-weight: normal;
+		text-transform: uppercase;
+		margin: 0;
+
+		&:focus,
+		&:hover {
+			text-decoration: none;
+		}
+
+		&:focus {
+			outline: none;
+		}
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		&.is-pressed,
+		&:active {
+
+			&.piano-block-keyboard__key--black {
+				background: linear-gradient(to bottom, #666 50%, #000 100%);
+				border-bottom-width: 4px;
+			}
+
+			&.piano-block-keyboard__key--white {
+				height: $white-key-height + $grid-unit-05;
+				background: linear-gradient(to bottom, #ccc 10%, #fff);
+				box-shadow: 0 2px 2px #aaa;
+			}
+		}
+	}
+
+	.piano-block-keyboard__key--black {
+		position: relative;
+		width: $black-key-width;
+		height: $grid-unit-10 * 14;
+		margin: 0 math.div($black-key-width, 2) * -1;
+		color: #fff !important;
+		background: linear-gradient(to bottom, #666 0%, #000 100%) !important;
+		border-color: #000;
+		border-style: solid;
+		border-width: 0 6px 8px;
+		border-bottom-color: #666;
+		border-radius: 0 0 4px 4px;
+		box-shadow: 0 3px 5px #ccc, inset 0 0 0 1px rgb(220 220 220 / 20%);
+		transition: background 0.03s, border-bottom-width 0.03s;
+		z-index: 1;
+	}
+
+	.piano-block-keyboard__key--white {
+		flex: 1;
+		height: 100%;
+		color: #000 !important;
+		background-color: #fff !important;
+		border: 1px #999 solid;
+		border-bottom: none;
+		border-radius: 0 0 3px 3px;
+		box-shadow: 0 4px 4px #aaa;
+		transition: height 0.03s, box-shadow 0.03s;
+	}
+}

@@ -1,0 +1,18 @@
+.piano-block-synthesizer-setting {
+	box-sizing: border-box;
+	width: 240px;
+	max-width: 100%;
+	padding: $grid-unit-20;
+	overflow: hidden;
+
+	.piano-block-synthesizer-setting__graph {
+		display: block;
+		width: 100%;
+		height: $grid-unit-10 * 10;
+		border: $border-width solid $gray-600;
+	}
+
+	.piano-block-synthesizer-setting__reset {
+		margin-left: auto;
+	}
+}
